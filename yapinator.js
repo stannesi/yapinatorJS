@@ -14,21 +14,21 @@
  * nwmatcher - Diego Perini
  * 
 */
-(function() {
+(function(win, doc, undefined) {
 	// caching global document
-	var doc = document,
+	// var doc = document,
 	// caching global window
-	win = window,
+	// win = window,
 	// will speed up references to undefined, and allows munging its name.
-	undefined,
+	// undefined,
 	// [array] cache for selected nodes, no leaks in IE detected
-	cache = [],
+	var cache = [],
 	// cache RegExp object for searching duplicates
 	regCache = {},
 	// save method reference
 	slice = Array.prototype.slice,
 	// @namespace for Yapinator
-	Yapinator = (function() {
+	Yapinator = (function () {
 		// The current version of yapinator
 		var version = "0.1",
 		// user agent
@@ -666,9 +666,11 @@
 			rmnth: function( s ) {
 				return s.replace( /\(\s*even\s*\)/gi, "(2n)").replace( /\(\s*odd\s*\)/gi, "(2n+1)");
 			},
+            // pre clean
 			preclean: function ( s ) {
 				return this.rmnth( this.rms( s ) );
 			},
+            // post clean
 			postclean: function ( s ) {
 				return this.rmb( this.rmq( s ) );
 			},
@@ -842,4 +844,4 @@
 	// EXPOSE
 	win.Yapinator = Yapinator;
 	win.Yap = Yapinator.select;
-})();
+})( window, document );

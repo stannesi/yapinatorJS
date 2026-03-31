@@ -1,4 +1,4 @@
-# Yapinator
+# YapinatorJS
 
 __.: Yapinator javascript CSS Selector engine :.__
 
